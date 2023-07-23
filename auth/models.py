@@ -21,6 +21,7 @@ role = Table(
     Column("permissions", JSON)
 )
 
+# Imperative method
 user = Table(
     "user",
     metadata,
@@ -35,6 +36,8 @@ user = Table(
     Column("is_verified", Boolean, default=False, nullable=False),
 )
 
+
+# Declarative method
 class User(SQLAlchemyBaseUserTable[int], Base):
     id = Column(Integer, primary_key=True)
     email = Column(String, nullable=False)
