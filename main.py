@@ -2,6 +2,7 @@ from fastapi import FastAPI
 from auth.base_config import fastapi_users, auth_backend
 from auth.schemas import UserRead, UserCreate
 from operations.router import router as router_operations
+from tasks.router import router as router_tasks
 from fastapi_cache import FastAPICache
 from fastapi_cache.backends.redis import RedisBackend
 from redis import asyncio as aioredis
@@ -23,6 +24,7 @@ app.include_router(
 )
 
 app.include_router(router_operations)
+app.include_router(router_tasks)
 
 
 # Function startup - executes when unicorn starts

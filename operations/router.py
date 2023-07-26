@@ -16,9 +16,9 @@ router = APIRouter(
 # expired - how many seconds data will be stored in Redis (cache)
 @router.get("/long_operation")
 @cache(expire=30)
-def get_long_op():
+def get_long_op(x: int):
     time.sleep(2)
-    return "LOOOOONG"
+    return x
 
 
 @router.get("")
