@@ -1,0 +1,6 @@
+# File for pointing pytest to app
+[tool.pytest.ini_options]
+pythonpath = [
+    ".", "src"
+]
+asyncio_mode = "auto"
