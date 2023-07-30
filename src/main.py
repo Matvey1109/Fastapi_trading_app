@@ -6,6 +6,7 @@ from src.auth.schemas import UserRead, UserCreate
 from src.operations.router import router as router_operations
 from src.tasks.router import router as router_tasks
 from src.pages.router import router as router_pages
+from src.chat.router import router as router_chat
 from fastapi_cache import FastAPICache
 from fastapi_cache.backends.redis import RedisBackend
 from redis import asyncio as aioredis
@@ -31,9 +32,9 @@ app.include_router(
 app.include_router(router_operations)
 app.include_router(router_tasks)
 app.include_router(router_pages)
+app.include_router(router_chat)
 
 origins = [
-    "http://localhost:8000",
     "http://localhost:3000"
 ]
 
